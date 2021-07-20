@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+    <style>
+     .aligncenter {text-align: center;}
+     h1 {text-align: center;}
+     h2 {text-align: center;}
+     h3 {text-align: center;} 
+     p {text-align: center;}
+     div {text-align: center;}
+     form {text-align: center;}
+    </style>
+
+
+    <p class="aligncenter">
+        <img src="static/radio.png" width="128" height="128" />
+    </p>
+
+    <h1>MuziekDoos Internet Radio</h1>
+    <form method="post" action="/">
+        <input type = "submit" value = "Volgende zender" name="vNext" />
+        <input type ="submit" value = "Start/stop" name = "vPause" />
+        <input type = "submit" value = "Vorige zender" name = "vPrev" />
+    </form>
+
+    <h2>Now playing: </h2>
+    <p>{{ currentStation }}</p>
+</html>
