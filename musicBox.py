@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 
 import nowplaying
+import socket
 from Radio import Radio
 from flask import Flask, render_template, request
 
 
-localhost = '127.0.0.1'
+host_ip = socket.gethostbyname(socket.gethostname())
 app = Flask(__name__)
 radio = Radio()
 
@@ -33,7 +34,7 @@ def index():
 
 def main():
     #app.run(host, port, debug, options)
-    app.run(localhost, 8000, 0)
+    app.run(host_ip, 8000, 0)
 
 if __name__ == '__main__':
     main()
