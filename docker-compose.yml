@@ -1,0 +1,22 @@
+version: '3.6'
+
+services:
+ musicbox:
+    build: .
+    ports:
+      - "8000:8000"
+    devices:
+      - "/dev/snd:/dev/snd"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - "${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native"
+    volumes:
+      - "$HOME/.config/pulse/cookie:/root/.config/pulse/cookie"
+      - "${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native"
+    # command: --user-profiles /profiles --profile valentijn
+    # group_add:
+      # - audio
+    
+
+    
