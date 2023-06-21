@@ -3,10 +3,13 @@
 import nowplaying
 import vlc
 
+
 class Radio():
     def __init__(self):
 
         error_flag = 0
+
+        radiolist = []
 
         try:
             self.create_name_list()
@@ -22,7 +25,8 @@ class Radio():
         self.paused = False
         self.i = 0
         self.label_text = (self.a[self.i])
-     #   print(self.radio[self.a[self.i]])
+        print("radiokeys", self.radio.keys)
+        print(self.radio[self.a[self.i]])
         nowplaying.np = self.label_text
         self.play(self.radio[self.a[self.i]])
         self.pause_ch()
@@ -41,16 +45,20 @@ class Radio():
         while len(record) > 0:
             record_ok = record.rstrip('\n')
             splittedrecord = record_ok.split(",")
+            print(splittedrecord)
             self.radio[splittedrecord[0]] = splittedrecord[1]
             record = fw.readline()
         fw.close()
         self.a = []
+        self.e = []
         for name in enumerate(sorted(self.radio.keys())): # enumerate return tuple
             # name[1] is web radio name   name[0] is record number.
             # Record number is not needed in this app as it is now. Maybe useful for future development.
             # Let's create a list with radio names
-                self.a.append(name[1])
-
+            self.e.append(name[0])
+            self.a.append(name[1])
+            self.radiolist = self.a
+            print(self.e)
     # Handler for player's buttons
     def next_ch(self):
         self.i += 1
@@ -73,6 +81,7 @@ class Radio():
 
         self.player.stop()
         self.play(self.radio[self.a[self.i]])
+        print(self.radio[self.a[self.i]])
 
 
     def pause_ch(self):
@@ -86,10 +95,15 @@ class Radio():
             self.paused = False
 
 
-    # Playback the selectded radio
+    def play_ch(self, station):
+        print(self.i)
+
+
+    # Playback the selected radio station
     def play(self,url):
         self.player = vlc.MediaPlayer(url)
         self.player.play()
+
 
     # When you click to exit, this function is called
     def on_exit(self):

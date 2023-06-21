@@ -4,3 +4,4 @@ Radio 538,https://21253.live.streamtheworld.com/RADIO538.mp3
 Radio 538 Dance Department,http://playerservices.streamtheworld.com/api/livestream-redirect/TLPSTR01.mp3
 Arrow Classic Rock,https://stream.gal.io/arrow
 Stu Bru,http://icecast.vrtcdn.be/stubru-high.mp3
+Radio Contact,https://radiocontact.ice.infomaniak.ch/radiocontact-mp3-192.mp3

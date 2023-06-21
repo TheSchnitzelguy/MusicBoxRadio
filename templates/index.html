@@ -5,7 +5,7 @@
      .aligncenter {text-align: center;}
      h1 {text-align: center;}
      h2 {text-align: center;}
-     h3 {text-align: center;} 
+     h3 {text-align: center;}
      p {text-align: center;}
      div {text-align: center;}
      form {text-align: center;}
@@ -21,8 +21,12 @@
         <input type = "submit" value = "Volgende zender" name="vNext" />
         <input type ="submit" value = "Start/stop" name = "vPause" />
         <input type = "submit" value = "Vorige zender" name = "vPrev" />
-    </form>
-
+        <select name ="radiolist" method ="GET" action="/">
+            {% for station in radiolist %}
+            <option value="{{station}}" SELECTED>{{station}}</option>"
+            {% endfor %}
+        </select>
+        </form>
     <h2>Now playing: </h2>
     <p>{{ currentStation }}</p>
 </html>
